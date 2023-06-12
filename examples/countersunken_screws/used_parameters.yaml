@@ -1,0 +1,20 @@
+#Scale
+camera_height: 200        # Height of camera above plane with boreholes in centimeter
+camera_angle: 90          # Angle at which camera diverges in degree
+hole_size_cm: 2.3         # Size of boreholes to detect in cm
+table_size_cm : 56        # Size of the table in cm
+screw_radius_cm : 35      # Radius on which the screws are positioned in cm
+
+#Contour Detection. Adaptation using dynamic reconfigure recommended
+contour_threshold: 100          # Screws: Threshold for canny edge detection
+accumulator_threshold: 10       # Screws: Threshold for center detection
+contour_threshold_table: 200    # Table:  Threshold for canny edge detection
+accumulator_threshold_table: 50 # Table:  Threshold for center detection
+
+#Model
+max_depth: 25         #Max depth of the tree
+min_sample_count: 3   #Minimum samples to split a node
+max_iterations: 2000  #Maximum iterations after which training ends
+weight_screws: 1      #Weight of missclassifying a screw as a hole compared to a hole as a screw.
+                      #Value of 10 means missclassifying a screw is 10 times worse than missclassifying a hole. 
+                      #0.1 means the opposite
